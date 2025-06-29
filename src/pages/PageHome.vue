@@ -33,9 +33,10 @@
             <p class="md:text-lg pb-6">Enter your email to get exclusive news, beta access and behind-the-scenes
                 updates.</p>
             <div class="flex flex-col sm:flex-row gap-4">
-                <input type="email" name="email" autocomplete="email" placeholder="Enter your email"
+                <input v-model="email" type="email" name="email" autocomplete="email" placeholder="Enter your email"
                     class="border-2 border-[#212322] p-2 px-4 w-full sm:max-w-md text-xl" />
                 <button
+                    @click="onNewsletterSubmit"
                     class="font-cizel font-semibold uppercase bg-[#701305] sm:text-2xl px-[2em] py-[0.5em] hover:bg-orange-800 border-[#701305] hover:border-b-rose-950 border-2 cursor-pointer text-[#e7dcbf] w-full sm:w-auto text-center">Subscribe</button>
             </div>
         </div>
@@ -48,4 +49,45 @@
     </footer>
 </template>
 <script setup lang="ts">
+
+import { ref } from 'vue';
+
+const email = ref('');
+
+const onNewsletterSubmit = async () => {
+    if (!email.value) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+    try {
+        await signUpForNewsletter(email.value);
+        alert('Thank you for subscribing to our newsletter!');
+        email.value = ''; // Clear the input field after successful submission
+    } catch (error) {
+        console.error('Error subscribing to newsletter:', error);
+        alert('There was an error subscribing to the newsletter. Please try again later.');
+    }
+}
+
+const signUpForNewsletter = async (email: string) => {
+    const LISTMONK_API = 'https://listmonk.pibern.ch/api/public/subscription';
+    const LISTMONK_LIST_ID = '3e5aefc1-c25c-48b5-a4d5-6889a1689207';
+    const payload = {
+        email,
+        name: '',
+        list_uuids: [LISTMONK_LIST_ID],
+    };
+
+    const response = await fetch(LISTMONK_API, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+    });
+    if (!response.ok) {
+        throw new Error('Failed to subscribe to the newsletter');
+    }
+    return response.json();
+}
 </script>
