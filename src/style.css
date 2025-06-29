@@ -16,7 +16,25 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Karla';
+    src: url('./assets/fonts/Karla/Karla-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rasa';
+    src: url('./assets/fonts/Rasa/Rasa-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 @theme {
     --font-cizel: 'Cizel', serif;
     --font-lora: 'Lora', serif;
+    --font-text-font: 'Karla', sans-serif;
+    --font-heading-font: 'Rasa', serif;
 }
