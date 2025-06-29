@@ -35,8 +35,7 @@
             <div class="flex flex-col sm:flex-row gap-4">
                 <input v-model="email" type="email" name="email" autocomplete="email" placeholder="Enter your email"
                     class="border-2 border-[#212322] p-2 px-4 w-full sm:max-w-md text-xl" />
-                <button
-                    @click="onNewsletterSubmit"
+                <button @click="onNewsletterSubmit"
                     class="font-cizel font-semibold uppercase bg-[#701305] sm:text-2xl px-[2em] py-[0.5em] hover:bg-orange-800 border-[#701305] hover:border-b-rose-950 border-2 cursor-pointer text-[#e7dcbf] w-full sm:w-auto text-center">Subscribe</button>
             </div>
         </div>
@@ -47,27 +46,57 @@
             <p class="text-sm">Copyright © {{ new Date().getFullYear() }} - All right reserved by 404 Forge</p>
         </div>
     </footer>
+    <dialog
+        ref="dialogEl"
+        class="p-6 bg-[#1b1b1b] text-[#e7dcbf] border border-[#701305] max-w-md w-full">
+        <h3 class="font-cizel font-semibold text-2xl mb-4">Newsletter</h3>
+        <p ref="dialogMessageEl" class="mb-6 text-lg"></p>
+        <button @click="closeDialog"
+            class="font-cizel font-semibold uppercase bg-[#701305] hover:bg-orange-800 border-[#701305] hover:border-b-rose-950 border-2 px-6 py-2 text-[#e7dcbf] cursor-pointer">Close</button>
+    </dialog>
 </template>
 <script setup lang="ts">
-
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 const email = ref('');
+const dialogEl = ref<HTMLDialogElement | null>(null);
+const dialogMessageEl = ref<HTMLElement | null>(null);
+
+onMounted(() => {
+    if (dialogEl.value) {
+        dialogEl.value.addEventListener('close', () => {
+            document.body.style.overflow = ''; // ensure scroll is restored
+        });
+    }
+});
+
+const showDialog = (message: string) => {
+    if (dialogMessageEl.value && dialogEl.value) {
+        dialogMessageEl.value.textContent = message;
+        if (!dialogEl.value.open) dialogEl.value.showModal();
+        document.body.style.overflow = 'hidden'; // ⛔ prevent scrolling
+    }
+};
+
+const closeDialog = () => {
+    if (dialogEl.value && dialogEl.value.open) dialogEl.value.close();
+    document.body.style.overflow = ''; // ✅ restore scroll
+};
 
 const onNewsletterSubmit = async () => {
     if (!email.value) {
-        alert('Please enter a valid email address.');
+        showDialog('Please enter a valid email address.');
         return;
     }
     try {
         await signUpForNewsletter(email.value);
-        alert('Thank you for subscribing to our newsletter!');
-        email.value = ''; // Clear the input field after successful submission
+        showDialog('Thank you for subscribing to our newsletter!');
+        email.value = '';
     } catch (error) {
         console.error('Error subscribing to newsletter:', error);
-        alert('There was an error subscribing to the newsletter. Please try again later.');
+        showDialog('There was an error subscribing to the newsletter. Please try again later.');
     }
-}
+};
 
 const signUpForNewsletter = async (email: string) => {
     const LISTMONK_API = 'https://listmonk.pibern.ch/api/public/subscription';
@@ -89,5 +118,20 @@ const signUpForNewsletter = async (email: string) => {
         throw new Error('Failed to subscribe to the newsletter');
     }
     return response.json();
-}
+};
 </script>
+<style scoped>
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7); /* dark semi-transparent background */
+  backdrop-filter: blur(3px); /* optional blur for a polished look */
+}
+
+dialog {
+
+  /* Center fallback for browsers that don't do it natively */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
