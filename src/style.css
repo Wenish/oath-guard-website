@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: 'Cizel';
+    src: url('./assets/fonts/Cinzel/Cinzel-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('./assets/fonts/Lora/Lora-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@theme {
+    --font-cizel: 'Cizel', serif;
+    --font-lora: 'Lora', serif;
+}
