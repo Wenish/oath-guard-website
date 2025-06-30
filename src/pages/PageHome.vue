@@ -9,11 +9,11 @@
             />
             <div class="absolute bottom-0 left-0 w-full flex flex-col items-center pb-24 px-4">
                 <h1
-                    class="font-heading-font font-bold text-5xl sm:text-7xl lg:text-9xl text-[#e46235] drop-shadow-2xl drop-shadow-black text-shadow-lg text-shadow-black">
+                    class="font-heading-font font-bold text-6xl sm:text-7xl lg:text-9xl text-[#e46235] drop-shadow-2xl drop-shadow-black text-shadow-lg text-shadow-black">
                     OATHGUARD
                 </h1>
                 <p
-                    class="font-semibold uppercase  drop-shadow-2xl drop-shadow-black text-shadow-lg text-shadow-black pb-5 md:text-lg">
+                    class="font-semibold uppercase  drop-shadow-2xl drop-shadow-black text-shadow-lg text-shadow-black pb-5 md:text-xl max-w-2xl">
                     Prepare to rise. Stand United. The Realm depends on your OATH.
                 </p>
                 <a href="https://discord.gg/g9kcDfHAkp" target="_blank" rel="noopener"
@@ -24,7 +24,7 @@
     </div>
     <div class="grid">
         <div class="bg-[#100909]">
-            <div class="max-w-2xl mx-auto text-left py-32 px-4">
+            <div class="max-w-2xl mx-auto text-left py-16 sm:py-32 px-4">
                 <h2
                     class="font-heading-font text-shadow-lg text-shadow-black  font-semibold text-3xl md:text-6xl pb-4 text-[#e7dcbf]">
                     What is Oathguard?</h2>
@@ -36,7 +36,7 @@
                 -->
             </div>
         </div>
-        <div class="max-w-2xl mx-auto text-left py-32 px-4">
+        <div class="max-w-2xl mx-auto text-left py-16 sm:py-32 px-4">
             <h2 class="font-heading-font text-shadow-lg text-shadow-black font-semibold text-3xl md:text-6xl pb-4 text-[#e7dcbf]">Stay Updated</h2>
             <p class="md:text-lg pb-6">Enter your email to get exclusive news, beta access and behind-the-scenes
                 updates.</p>
