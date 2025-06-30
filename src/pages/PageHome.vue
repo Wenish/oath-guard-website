@@ -1,19 +1,25 @@
 <template>
-    <div class="h-[calc(60svh)] relative">
-        <img src="../assets/hero-image.webp" alt="Hero Image"
-            class="absolute w-full h-full object-cover object-top z-[-1]" />
-        <div class="absolute bottom-0 left-0 w-full flex flex-col items-center pb-24 px-4">
-            <h1
-                class="font-heading-font font-bold text-5xl sm:text-7xl lg:text-9xl text-[#e46235] drop-shadow-2xl drop-shadow-black text-shadow-lg text-shadow-black">
-                OATHGUARD
-            </h1>
-            <p
-                class="font-semibold uppercase  drop-shadow-2xl drop-shadow-black text-shadow-lg text-shadow-black pb-5 md:text-lg">
-                Prepare to rise. Stand United. The Realm depends on your OATH.
-            </p>
-            <a href="https://discord.gg/g9kcDfHAkp" target="_blank" rel="noopener"
-                class="font-heading-font  font-semibold uppercase bg-[#701305] sm:text-2xl px-[2em] py-[0.5em] hover:bg-orange-800 border-[#701305] hover:border-b-rose-950 border-2 cursor-pointer text-[#e7dcbf] w-full sm:w-auto text-center">join
-                the discord</a>
+    <div class="h-[calc(60svh)] relative flex justify-center bg-[#100909]">
+        <div class="relative w-full max-w-7xl h-full">
+            <img
+                src="../assets/hero-image.webp"
+                alt="Hero Image"
+                class="absolute w-full h-full object-cover object-top z-0 pointer-events-none select-none"
+                style="mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%); mask-composite: intersect; -webkit-mask-composite: source-in;"
+            />
+            <div class="absolute bottom-0 left-0 w-full flex flex-col items-center pb-24 px-4">
+                <h1
+                    class="font-heading-font font-bold text-5xl sm:text-7xl lg:text-9xl text-[#e46235] drop-shadow-2xl drop-shadow-black text-shadow-lg text-shadow-black">
+                    OATHGUARD
+                </h1>
+                <p
+                    class="font-semibold uppercase  drop-shadow-2xl drop-shadow-black text-shadow-lg text-shadow-black pb-5 md:text-lg">
+                    Prepare to rise. Stand United. The Realm depends on your OATH.
+                </p>
+                <a href="https://discord.gg/g9kcDfHAkp" target="_blank" rel="noopener"
+                    class="font-heading-font  font-semibold uppercase bg-[#701305] sm:text-2xl px-[2em] py-[0.5em] hover:bg-orange-800 border-[#701305] hover:border-b-rose-950 border-2 cursor-pointer text-[#e7dcbf] w-full sm:w-auto text-center">join
+                    the discord</a>
+            </div>
         </div>
     </div>
     <div class="grid">
