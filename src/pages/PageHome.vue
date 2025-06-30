@@ -24,7 +24,7 @@
     </div>
     <div class="grid">
         <div class="bg-[#100909]">
-            <div class="max-w-2xl mx-auto text-left sm:text-center py-32 px-4">
+            <div class="max-w-2xl mx-auto text-left py-32 px-4">
                 <h2
                     class="font-heading-font text-shadow-lg text-shadow-black  font-semibold text-3xl md:text-6xl pb-4 text-[#e7dcbf]">
                     What is Oathguard?</h2>
@@ -36,7 +36,7 @@
                 -->
             </div>
         </div>
-        <div class="max-w-2xl mx-auto text-left sm:text-center py-32 px-4">
+        <div class="max-w-2xl mx-auto text-left py-32 px-4">
             <h2 class="font-heading-font text-shadow-lg text-shadow-black font-semibold text-3xl md:text-6xl pb-4 text-[#e7dcbf]">Stay Updated</h2>
             <p class="md:text-lg pb-6">Enter your email to get exclusive news, beta access and behind-the-scenes
                 updates.</p>
